@@ -35,6 +35,10 @@ public class Person {
         this.age = age;
     }
 
+    public Person(){
+
+    }
+
 
     // Methods // ---------------------------------------------------------
     public void addParents(Person father, Person mother){
