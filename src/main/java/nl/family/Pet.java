@@ -11,6 +11,9 @@ public class Pet {
         this.age = age;
         this.species = species;
     }
+    public Pet() {
+
+    }
 
     public String getName() {
         return name;
