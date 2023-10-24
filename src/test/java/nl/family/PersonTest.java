@@ -315,31 +315,57 @@ public class PersonTest {
         person.addParents(father, mother);
 
         // Assert
-        assertEquals(father, person.getFather());
-        assertEquals(mother, person.getMother());
+        assertEquals("John", person.getFather().getName());
+        assertEquals("Mary", person.getMother().getName());
     }
 
     @Test
     public void testAddChild() {
         // Arrange
-        Person person = new Person();
-        Person child = new Person("Sim","Wolf","Man",4);
+        Person person = new Person("Tamer", "Al", "Man", 33);
+        Person child = new Person("Shara", "Wolf", "Female", 4);
 
         // Act
         person.addChild(child);
 
         // Assert
-        List<Person> children = person.getChildren();
-        assertTrue(children.contains(child));
+        assertTrue(person.getChildren().contains(child));
+        assertEquals("Shara", person.getChildren().get(0).getName());
+        assertEquals(1, person.getChildren().size());
+        assertNotNull(person.getChildren());
+        assertNotEquals("Mari",person.getChildren().get(0).getName());
     }
 
     @Test
     public void testAddSibling() {
+        // Arrange
+        Person person = new Person("Tamer", "Al", "Man", 33);
+        Person sibling1 = new Person("Kamer", "Al", "Man", 23);
+        Person sibling2 = new Person("Hamer", "Al", "Man", 22);
 
+        // Act
+        person.addSibling(sibling1);
+        person.addSibling(sibling2);
+
+        // Assert
+        assertTrue(person.getSiblings().contains(sibling1));
+        assertEquals("Hamer", person.getSiblings().get(1).getName());
+        assertEquals(2,person.getSiblings().size());
     }
     @Test
     public void testAddPet() {
+        // Arrange
+        Person person = new Person("Tamer", "Al", "Man", 33);
+        Pet pet1 = new Pet("Cat", 3, "Siamese");
+        Pet pet2 = new Pet("Dog", 5, "Bulldog");
 
+        // Act
+        person.addPet(pet1);
+        person.addPet(pet2);
+        // Assert
+        assertTrue(person.getPet().contains(pet1));
+        assertEquals("Cat", person.getPet().get(0).getName());
+        assertEquals(2, person.getPet().size());
     }
     @Test
     public void testGetGrandChildren() {

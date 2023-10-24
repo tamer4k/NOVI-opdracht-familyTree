@@ -13,10 +13,10 @@ public class Person {
     Person father;
     Person mother;
 
-    List<Person> siblings;
-    List<Person> children;
+    List<Person> siblings = new ArrayList<>();
+    List<Person> children = new ArrayList<>();
 
-    List<Pet> pets;
+    List<Pet> pets = new ArrayList<>();
 
     // constractor // ------------------------------------------------
 
@@ -58,7 +58,7 @@ public class Person {
         pets.add(pet);
     }
 
-    public List<Person> getGrandChildren(){
+        public List<Person> getGrandChildren(){
         List<Person> grandChildren = new ArrayList<>();
         for (Person child : children) {
             grandChildren.addAll(child.children);
