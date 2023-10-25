@@ -58,7 +58,8 @@ public class Person {
         pets.add(pet);
     }
 
-        public List<Person> getGrandChildren(){
+    public List<Person> getGrandChildren(){
+
         List<Person> grandChildren = new ArrayList<>();
         for (Person child : children) {
             grandChildren.addAll(child.children);
