@@ -369,6 +369,33 @@ public class PersonTest {
     }
     @Test
     public void testGetGrandChildren() {
+        // Arrange
 
+        Person Robert = new Person("Robert","Bakker","M",63);
+
+        Person Francisco = new Person("Francisco","Bakker","M",32);
+        Person Sandra = new Person("Sandra","Bakker","F",30);
+
+        Person Zula = new Person("Zula","Bakker","F",5);
+        Person Cleveland = new Person("Cleveland","Bakker","M",3);
+
+        Person Perdo = new Person("Perdo","deJong","M",3);
+
+        Robert.addChild(Francisco);
+        Robert.addChild(Sandra);
+
+        Francisco.addChild(Zula);
+        Francisco.addChild(Cleveland);
+
+        Sandra.addChild(Perdo);
+
+        // Act
+
+        List<Person> grandChildren = Robert.getGrandChildren();
+
+        // Assert
+        assertEquals("Zula Bakker", grandChildren.get(0).getName() + " " + grandChildren.get(0).getLastName());
+        assertEquals("Cleveland Bakker", grandChildren.get(1).getName() + " " + grandChildren.get(1).getLastName());
+        assertEquals("Perdo deJong", grandChildren.get(2).getName() + " " + grandChildren.get(2).getLastName());
     }
 }
